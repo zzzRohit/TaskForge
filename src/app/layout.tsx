@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mini Trello",
-  description:
-    "A lightweight task board starter built with Next.js and Prisma.",
+  title: "TaskForge",
+  description: "Task management built with Next.js and Prisma.",
 };
 
 export default function RootLayout({

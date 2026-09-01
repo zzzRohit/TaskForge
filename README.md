@@ -1,6 +1,6 @@
-# Mini Trello
+# TaskForge
 
-A minimal Next.js + TypeScript + Tailwind project using the App Router and PostgreSQL via Prisma.
+A minimal Next.js + TypeScript + Tailwind project for task management, using the App Router and PostgreSQL via Prisma.
 
 ## Stack
 
