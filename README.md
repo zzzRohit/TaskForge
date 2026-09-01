@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mini Trello
 
-## Getting Started
+A minimal Next.js + TypeScript + Tailwind project using the App Router and PostgreSQL via Prisma.
 
-First, run the development server:
+## Stack
+
+- Next.js 16
+- TypeScript
+- Tailwind CSS
+- PostgreSQL
+- Prisma ORM
+
+## Local setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Create a local PostgreSQL database and user, then add your connection string to `.env`:
+
+```env
+DATABASE_URL="postgresql://mini_trello:mini_trello_pw@localhost:5432/mini_trello?schema=public"
+```
+
+3. Generate the Prisma client and apply the schema:
+
+```bash
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+## Run the app
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Health endpoint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+curl http://localhost:3000/api/health
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Expected response:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+{ "status": "ok" }
+```
